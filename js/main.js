@@ -19,12 +19,19 @@ for (let i = 0; i < imgNum; i++) {
 }
 frame.innerHTML = tags;
 
+// 3, 4단계 (1)
+const imgs = frame.querySelectorAll('img');
+
 // 2단계
 frame.addEventListener('mousemove', (e) => {
-	const { pageX } = e;
+	// const { pageX } = e;
+	const pageX = e.pageX;
 	// 백분율 공식 : 현재 수치 값 / 전체 수치 값 * 100;
-	const percent = (pageX / window.innerWidth) * imgNum;
+	const percent = parseInt((pageX / window.innerWidth) * imgNum);
 	// parseInt('숫자값') -> 인수로 전달된 숫자값의 소수점 아래로 버리고 정수로 반환
 	// parseFloat('숫자값') -> 인수로 전달된 숫자값의 소수점까지 포함한 실수로 반환
-	console.log(percent);
+
+	// 3, 4단계 (2)
+	imgs.forEach((img) => (img.style.visibility = 'hidden'));
+	imgs[percent].style.visibility = 'visible';
 });

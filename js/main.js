@@ -3,8 +3,10 @@ const mask = document.querySelector('.mask');
 const countEl = mask.querySelector('span');
 const imgNum = 200;
 
+// 로딩 시 (시스템 이벤트)
 const imgs = createImgs(frame, imgNum);
 imgLoadedCheck(imgs);
+// 마우스 무브 시 (사용자 이벤트)
 frame.addEventListener('mousemove', showImg);
 
 // 동적으로 이미지 생성하는 함수
